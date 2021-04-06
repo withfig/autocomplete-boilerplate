@@ -9,7 +9,7 @@
 This repository is a starter for teams to get started quickly when creating completions for private CLIs and scripts which should not be public.
 
 ## Getting Started
-This repo is a `template` which means you can create your own repo with just a click.
+This repo is a `template` which means you can create your own repo with just a click. Simply click the **Use this template** button at the top right of this repository to create a new repository.
 
 ```bash
 # Install packages
