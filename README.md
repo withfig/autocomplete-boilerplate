@@ -24,15 +24,15 @@ This repo is almost exactly the same as [withfig/autocomplete](https://github.co
 
 ## Using this repo
 
-Build your first spec in < 3 min: [fig.io/docs/getting-started](fig.io/docs/getting-started)
+Build your first spec in < 3 min: [fig.io/docs/getting-started](https://fig.io/docs/getting-started)
 
-1. Click "**Use this Template**" above
+1. Click "**Use this Template**" above. Name it `fig-autocomplete-private`
 
 2. Clone your forked repo and create an example spec
 
 ```bash
-# Replace `YOUR_GITHUB_USERNAME` with your own github username and YOUR_REPO_NAME with whatever you decide to call your repo
-git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git fig-autocomplete-private
+# Replace `YOUR_GITHUB_USERNAME` with your own github username
+git clone https://github.com/YOUR_GITHUB_USERNAME/fig-autocomplete-private.git fig-autocomplete-private
 cd fig-autocomplete-private
 
 # Add withfig/autocomplete as a remote
@@ -87,7 +87,7 @@ git push origin master
 Now have your team clone your repo and then copy all the specs over to their ~/.fig/autocomplete folder
 
 ```
-git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git fig-autocomplete-private
+git clone https://github.com/YOUR_GITHUB_USERNAME/fig-autocomplete-private.git fig-autocomplete-private
 cd fig-autocomplete-private
 
 # Copy all specs from the specs/ folder to the ~/.fig/autocomplete folder
