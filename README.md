@@ -31,12 +31,12 @@ Build your first spec in < 3 min: [fig.io/docs/getting-started](fig.io/docs/gett
 2. Clone your forked repo and create an example spec
 
 ```bash
-# Replace `YOUR_GITHUB_USERNAME` with your own github username
-git clone https://github.com/YOUR_GITHUB_USERNAME/autocomplete.git fig-autocomplete
-cd fig-autocomplete
+# Replace `YOUR_GITHUB_USERNAME` with your own github username and YOUR_REPO_NAME with whatever you decide to call your repo
+git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git fig-autocomplete-private
+cd fig-autocomplete-private
 
 # Add withfig/autocomplete as a remote
-git remote add upstream https://github.com/withfig/autocomplete.git
+git remote add upstream https://github.com/withfig/autocomplete-boilerplate.git
 
 # Install packages
 npm install
@@ -58,7 +58,7 @@ npm run dev
 
 <br/>
 
-## Save My Spec Locally
+## Save My Spec for Personal use
 
 Compile your spec then save it to your `~/.fig/autocomplete` folder
 
@@ -70,19 +70,33 @@ npm run build
 npm run copy <spec-name>
 ```
 
-## Share with My Team
+## Share my Spec with My Team
 
 Compile your spec(s) to the `specs/` folder
 
 ```bash
+# Compile your spec
 npm run build
+
+# Commit your changes and push to your repo
+git add .
+git commit -m "my message"
+git push origin master
 ```
 
-Now your spec has been compiled to the `specs/` folder, you can share the `.js` file with your team. Once they put it in their `~/.fig/autocomplete` folder, they will have full access to the completions you generated.
+Now have your team clone your repo and then copy all the specs over to their ~/.fig/autocomplete folder
 
-**Note**: alternatively, you could commit your spec to your repo, have your team clone the repo, then do the same as `Save My Spec Locally` above.
+```
+git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git fig-autocomplete-private
+cd fig-autocomplete-private
 
-> Fig is working on providing a much better experience for this and is launching it very soon.
+# Copy all specs from the specs/ folder to the ~/.fig/autocomplete folder
+npm run copy:all
+```
+
+**Alternatively**, you can simply share your compiled `.js` file with anyone (e.g. through email or Slack). Once they put the file in their `~/.fig/autocomplete` folder, it will start working!
+
+> **Note**: Fig is working on providing a much better experience for sharing specs with your team. We are hoping to launch it very soon.
 
 ## Other available package.json commands
 
