@@ -3,66 +3,115 @@
 </p>
 
 ---
-## Autocompletion Boilerplate
 
-### TL;DR
-This repository is a starter for teams to get started quickly when creating completions for private CLIs and scripts which should not be public.
+![os](https://img.shields.io/badge/os-%20macOS-light)
+[![Signup](https://img.shields.io/badge/signup-private%20beta-blueviolet)](https://fig.io?ref=github_autocomplete)
+[![Documentation](https://img.shields.io/badge/documentation-black)](https://fig.io/docs/)
+![Discord](https://img.shields.io/discord/837809111248535583?color=768ad4&label=discord)
+[![Twitter](https://img.shields.io/twitter/follow/fig.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=fig)
 
-## Getting Started
-This repo is a `template` which means you can create your own repo with just a click. Simply click the **Use this template** button at the top right of this repository to create a new repository.
+# Autocompletion Boilerplate
+
+This repository is a template for **individuals / teams looking to build autocomplete specs for private CLIs and scripts** (ie scripts that they do not want to make public).
+
+This repo is almost exactly the same as [withfig/autocomplete](https://github.com/withfig/autocomplete) except the `dev/` and `specs/` folders are empty (they will appear after you run `npm run create-boilerplate`)
+
+## Documentation
+
+- Main docs: [fig.io/docs](https://fig.io/docs/)
+- Autocomplete for personal shortcuts: [fig.io/docs/tutorials/visual-shortcuts](https://fig.io/docs/tutorials/visual-shortcuts)
+- Autocomplete for teams: [fig.io/docs/tutorials/building-internal-clis](https://fig.io/docs/tutorials/building-internal-clis)
+
+## Using this repo
+
+Build your first spec in < 3 min: [fig.io/docs/getting-started](fig.io/docs/getting-started)
+
+1. Click "**Use this Template**" above
+
+2. Clone your forked repo and create an example spec
 
 ```bash
+# Replace `YOUR_GITHUB_USERNAME` with your own github username
+git clone https://github.com/YOUR_GITHUB_USERNAME/autocomplete.git fig-autocomplete
+cd fig-autocomplete
+
+# Add withfig/autocomplete as a remote
+git remote add upstream https://github.com/withfig/autocomplete.git
+
 # Install packages
 npm install
 
-# Go into testing mode
+# Create an example spec (call it "abc")
+npm run create-example
+
+# Turn on "dev mode"
 npm run dev
 ```
 
-Edit your spec in the `dev/` folder. It will compile to the root folder on save. Start testing your spec immediately in your terminal.
+3. Now go to your terminal and type `abc[space]`. Your example spec will appear. 😊
 
-**Note**: Fig usually looks for completion specs in your `~/.fig/autocomplete` folder.
+#### Other things to know
 
-## Commands
-### dev
-Running 
+- Edit your spec in typescript in the `dev/` folder
+- On save, specs are compiled to the `specs/` folder
+- In **dev mode** specs are read from the `specs` folders. Otherwise they are read from `~/.fig/autocomplete`
+
+<br/>
+
+## Save My Spec Locally
+
+Compile your spec then save it to your `~/.fig/autocomplete` folder
+
 ```bash
-npm run dev
+# Compile your spec(s) to the specs/ folder
+npm run build
+
+# Copy your spec from the specs/ folder to the ~/.fig/autocomplete folder
+npm run copy <spec-name>
 ```
-starts the developer mode which makes development of completion specs easy. It updates the completions in fig as soon as you save your files while `dev` is running.
 
-### test
-The test commands enables typechecking of your specs. It will check for `TypeErrors` using TypeScript
+## Share with My Team
 
+Compile your spec(s) to the `specs/` folder
 
-### copy (general)
-When fig shows the suggestions it will look for `.js` files in your local `~/.fig/autcomplete` folder. Therefore you need to copy your changed spec(s) from this repo to that folder. We have to helper functions for that usecase in place:
-
-### copy
-*Example:* 
 ```bash
-npm run copy git
+npm run build
 ```
-This command will copy the `git.js` spec to `.fig/autcomplete` folder.
 
-### copy:all
-This command copies **all** specs from this repository to your local `.fig/autocomplete` folder.
+Now your spec has been compiled to the `specs/` folder, you can share the `.js` file with your team. Once they put it in their `~/.fig/autocomplete` folder, they will have full access to the completions you generated.
 
-### create-boilerplate
-This commands starts a small helper CLI which creates a new spec in the `/dev` folder. It adds a new `<name>.ts` file with some boilerplate content.
+**Note**: alternatively, you could commit your spec to your repo, have your team clone the repo, then do the same as `Save My Spec Locally` above.
 
-### build
-This command compiles all `.ts` files in the `/dev` folder to `.js`. 
+> Fig is working on providing a much better experience for this and is launching it very soon.
 
-**Note:**
-This needs to be used before copying files using `npm run copy` or `npm run copy:all`
+## Other available package.json commands
 
+```bash
 
-### lint
-This command checks all files for formatting (e.g. spacing and quotes) and invalid code (e.g. `name` property including a `=`)
+# Create a new spec from a boilerplate template
+npm run create-boilerplate
 
-### lint:fix
-This command does the same as `npm run lint` but also fixes all problems which can be fixed automatically (e.g. using the correct quotes).
+# Typecheck all specs in the dev/ folder
+npm test
 
-### prepare
-Internal command used to install git hooks.
+# Compile typescripts specs from dev/ folder to specs/ folder
+npm run build
+
+# Copy all specs from the specs/ folder to the ~/.fig/autocomplete folder
+npm run copy:all
+
+# Copy an individual spec from the specs/ folder to the ~/.fig/autocomplete folder
+npm run copy <spec-name>
+```
+
+## 😊 Need Help?
+
+Email [hello@fig.io](mailto:hello@fig.io)
+
+<p align="center">
+    Join our community
+<br/>
+<a href="https://fig.io/community">
+    <img src="http://fig.io/icons/discord-logo-square.png" width="80px" height="80px" /> 
+</a>
+</p>
